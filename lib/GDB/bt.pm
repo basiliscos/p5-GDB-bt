@@ -47,6 +47,8 @@ Currently it was tested on the following configurations:
 
 =back
 
+If it works on your perl and it is not listed here, please, let us know.
+
 =head1 INTERNALS
 
 The main script is written in Python, as gdb out of the box has official Python-bindings.

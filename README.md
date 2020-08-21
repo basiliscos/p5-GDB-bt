@@ -39,6 +39,8 @@ Currently it was tested on the following configurations:
 - 5.30 (non threaded, linux)
 - 5.32 (non-threaded, linux)
 
+If it works on your perl and it is not listed here, please, let us know.
+
 # INTERNALS
 
 The main script is written in Python, as gdb out of the box has official Python-bindings.

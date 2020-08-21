@@ -1,8 +1,10 @@
-# NAME
+package GDB::bt;
+
+=head1 NAME
 
 GDB::bt - Get perl backtraces from coredump files
 
-# SYNOPSIS
+=head1 SYNOPSIS
 
     $ gdb-bt.pl core.17373
     Reading symbols from perl...
@@ -24,32 +26,43 @@ GDB::bt - Get perl backtraces from coredump files
     [7] 0x559756ca0c42 "/home/b/development/crazy-panda/core-dev/t/lib/Panda/TestEnvironment.pm":192
     [8] 0x5597560d1e12 "t/03-xserver/01-rpc-async.t":56
 
-# DESCRIPTION
 
-If your perl program segfaults you can easily extract `C` backtraces, however perl bactraces are
-not available. Usually you can _guess_ correctly them (e.g. from logs), but that takes time
+=head1 DESCRIPTION
+
+If your perl program segfaults you can easily extract C<C> backtraces, however perl bactraces are
+not available. Usually you can I<guess> correctly them (e.g. from logs), but that takes time
 and it is error-prone. The proposed script solves at least partially solves the problem.
 
 The script target audience is: XS-modules writers and bug-reporters (for perl core and XS-modules).
 
-# LIMITATIONS
+=head1 LIMITATIONS
 
 Currently it was tested on the following configurations:
 
-- 5.30 (non threaded, linux)
-- 5.32 (non-threaded, linux)
+=over
 
-# INTERNALS
+=item 5.30 (non threaded, linux)
+
+=item 5.32 (non-threaded, linux)
+
+=back
+
+=head1 INTERNALS
 
 The main script is written in Python, as gdb out of the box has official Python-bindings.
-To extend it, you should look a the perl sources somewhere around `pp_ctl.c / caller_cx`
+To extend it, you should look a the perl sources somewhere around C<pp_ctl.c / caller_cx>
 and duplicate the code in the Python script. Yes, you have to expand all perl macroses,
 undocumented perl internals etc., to let it work. There is no other way. 
 
-# AUTHOR
+=head1 AUTHOR
 
 Ivan Baidakou <dmol@cpan.org>, Crazy Panda LTD
 
-# LICENSE
+=head1 LICENSE
 
 You may distribute this code under the same terms as Perl itself.
+
+
+=cut
+
+1;
